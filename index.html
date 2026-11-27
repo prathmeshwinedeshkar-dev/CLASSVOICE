@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101124">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CLASSVOICE">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/classvoice-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/classvoice-192.png">
+  <meta name="description" content="CLASSVOICE — a student-first anonymous classroom feedback prototype for VIT Pune FY ET-D.">
+  <title>CLASSVOICE — Your voice, your classroom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="CLASSVOICE home"><span class="brand-mark">C</span><span>CLASS<span class="brand-light">VOICE</span><small>STUDENT VOICE PLATFORM</small></span></a>
+      <div class="class-chip"><span class="live-dot"></span><span><b>VIT PUNE</b><small>FY · Electronics & Telecommunication · ET-D</small></span></div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-view="home"><span>⌂</span> Overview</button>
+        <button class="nav-link" data-view="concerns"><span>◉</span> Student pulse</button>
+        <button class="nav-link" data-view="submit"><span>＋</span> Raise a concern</button>
+        <button class="nav-link" data-view="reports"><span>▤</span> Class insights</button>
+        <button class="nav-link" data-view="timetable"><span>▦</span> Faculty & subjects</button>
+        <button class="nav-link" data-view="privacy"><span>✳</span> Privacy centre</button>
+      </nav>
+      <div class="sidebar-note"><div class="shield">✳</div><b>Your identity isn't the feedback.</b><p>No college email, OTP, or student account is requested by CLASSVOICE.</p></div>
+      <div class="sidebar-footer"><span class="avatar">ET</span><span><b>ET-D Student Space</b><small>Prototype · Not connected to VIT</small></span></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">C</span> CLASSVOICE</div>
+        <div class="breadcrumb">Student space <span>/</span> <b id="crumb">Overview</b></div>
+        <div class="top-actions"><span class="privacy-pill"><i></i> Privacy-first demo</span><button class="button button-install" id="installApp" type="button">↓ Install app</button><button class="icon-button" id="themeToggle" aria-label="Toggle theme">◐</button></div>
+      </header>
+
+      <section class="view active" id="view-home">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-line"></span> THE CLASSROOM, HEARD TOGETHER</div>
+            <h1>Better classes<br>begin with <em>honest voices.</em></h1>
+            <p>A calmer, safer way to share what could make learning better. No public arguments. Just concerns, collective support, and constructive action.</p>
+            <div class="hero-actions"><button class="button button-primary" data-jump="submit">Raise a concern <span>↗</span></button><button class="button button-ghost" data-jump="concerns">Explore student pulse</button></div>
+            <div class="hero-trust"><span>✳</span> No names displayed with concerns or votes</div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+            <div class="orb-core"><span>CV</span><small>YOUR VOICE</small></div>
+            <div class="float-card float-top"><span class="float-icon">♡</span><span><b>Collective support</b><small>Students stand together</small></span></div>
+            <div class="float-card float-bottom"><span class="float-icon violet">✳</span><span><b>Constructive change</b><small>From concern to action</small></span></div>
+            <span class="spark spark-one">✦</span><span class="spark spark-two">✧</span>
+          </div>
+        </div>
+
+        <div class="notice-banner"><span class="notice-icon">ⓘ</span><div><b>Prototype notice</b><p>No college email or OTP is requested. This demo stores entries and reactions only in this browser; it has no shared server. Do not enter real or sensitive complaints yet.</p></div><span class="demo-tag">DEMO MODE</span></div>
+
+        <div class="section-heading"><div><div class="eyebrow">A SNAPSHOT OF THE SPACE</div><h2>Classroom pulse</h2></div><button class="text-button" data-jump="reports">View insights ↗</button></div>
+        <div class="stat-grid">
+          <article class="stat-card"><div class="stat-top"><span>Published concerns</span><span class="stat-icon">◉</span></div><strong id="statConcerns">03</strong><small>Illustrative demo entries</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Support reactions</span><span class="stat-icon">♡</span></div><strong id="statVotes">32</strong><small>Demo votes, not real students</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Faculty represented</span><span class="stat-icon">✳</span></div><strong id="statFaculty">03</strong><small>Sample faculty placeholders</small></article>
+          <article class="stat-card accent-stat"><div class="stat-top"><span>Comments & debates</span><span class="stat-icon">⌁</span></div><strong>0</strong><small>Intentionally not available</small></article>
+        </div>
+
+        <div class="content-grid">
+          <section class="panel"><div class="panel-heading"><div><div class="eyebrow">WHAT STUDENTS ARE RAISING</div><h3>Popular themes</h3></div><span class="tiny-label">DEMO DATA</span></div><div id="homeCategories" class="category-list"></div></section>
+          <section class="panel action-panel"><div class="eyebrow">A SMALL STEP MATTERS</div><h3>Something on your mind?</h3><p>Share a specific classroom concern and suggest what would make it better. You don't need to speak for everyone.</p><button class="button button-primary full-width" data-jump="submit">Share feedback <span>↗</span></button><div class="action-foot">Anonymous by design · Respectful by default</div></section>
+        </div>
+      </section>
+
+      <section class="view" id="view-concerns">
+        <div class="page-heading"><div class="eyebrow">COLLECTIVE VOICE</div><h1>Student <em>pulse.</em></h1><p>Browse concerns shared by the class. React if you relate. No comment threads, no pile-ons.</p></div>
+        <div class="toolbar"><label class="search-box">⌕ <input id="searchConcerns" placeholder="Search concerns or subjects" aria-label="Search concerns"></label><select id="filterFaculty" aria-label="Filter by faculty"><option value="">All faculty</option></select><select id="sortConcerns" aria-label="Sort concerns"><option value="support">Most supported</option><option value="least">Least supported</option><option value="recent">Most recent</option></select><select id="periodConcerns" aria-label="Filter by time"><option value="all">All time</option><option value="today">Today</option></select></div>
+        <div class="feed-note"><span>♡</span> This demo limits each browser profile to one reaction per concern. This is not a secure one-person-one-vote guarantee. A support reaction means “I relate”; it does not prove an allegation.</div>
+        <div id="concernFeed" class="concern-grid"></div>
+      </section>
+
+      <section class="view" id="view-submit">
+        <div class="page-heading"><div class="eyebrow">YOUR EXPERIENCE MATTERS</div><h1>Raise a <em>concern.</em></h1><p>Keep it specific, respectful, and focused on learning conditions or classroom practices.</p></div>
+        <div class="form-layout">
+          <form id="concernForm" class="panel concern-form">
+            <div class="form-step"><span>01</span><div><b>Choose the class context</b><small>Use the timetable-linked faculty list once it is verified.</small></div></div>
+            <label>Faculty member<select id="facultySelect" required><option value="">Select faculty member</option></select></label>
+            <label>Subject<select id="subjectSelect" required><option value="">Select subject</option></select></label>
+            <label>Concern category<select id="categorySelect" required><option value="">Choose a category</option><option>Teaching & explanation</option><option>Classroom environment</option><option>Fairness & respect</option><option>Assignments & workload</option><option>Assessment & feedback</option><option>Attendance & punctuality</option><option>Communication</option><option>Other</option></select></label>
+            <div class="form-step"><span>02</span><div><b>Describe the experience</b><small>Don't include names, roll numbers, email addresses, or identifying details.</small></div></div>
+            <label>Your concern<textarea id="concernText" minlength="20" maxlength="900" required placeholder="What happened? How does it affect learning? What practical change would help?"></textarea><div class="field-meta"><span>Factual and constructive language works best.</span><span id="charCount">0 / 900</span></div></label>
+            <label class="check-row"><input id="confirmRespect" type="checkbox" required><span>I confirm this is genuine feedback, written respectfully and without personal attacks or identifying details.</span></label>
+            <button class="button button-primary full-width" type="submit">Preview & add to local demo <span>↗</span></button>
+            <p class="form-feedback" id="formFeedback" role="status"></p>
+          </form>
+          <aside class="panel privacy-aside"><div class="privacy-emblem">✳</div><div class="eyebrow">THE CLASSVOICE PRINCIPLE</div><h3>Your name is not part of the conversation.</h3><p>CLASSVOICE does not ask for college email, OTP, account creation or student identity. This prototype has no shared backend, so it cannot confirm that visitors belong to ET-D.</p><ul><li>No student accounts or college email collection</li><li>No voter names displayed</li><li>No comment or debate section</li><li>Reports use aggregated, privacy-filtered results</li></ul><div class="privacy-warning">Do not submit sensitive or real complaints in this demo.</div></aside>
+        </div>
+      </section>
+
+      <section class="view" id="view-reports">
+        <div class="page-heading"><div class="eyebrow">SIGNALS, NOT SPECULATION</div><h1>Class <em>insights.</em></h1><p>Aggregated feedback can help identify patterns. Support counts are not findings of fact.</p></div>
+        <div class="report-banner"><span>▤</span><div><b>Class representatives · Sarthak Jain (CR) & Prashashti Wankhede (ACR)</b><p>They can review the same class-wide concern board and aggregate priority reports. Nothing is automatically sent to them or to a teacher; students can see the shared board. No voter identities are shown.</p></div></div><div class="panel tracker-panel"><div class="panel-heading"><div><div class="eyebrow">FOLLOW THE RESPONSE</div><h3>Action taken tracker</h3></div><span class="tiny-label">PUBLIC STATUS</span></div><p class="muted">Shows the current handling stage of each concern. Status changes require an authorized moderator in the live system.</p><div id="actionTracker" class="action-tracker"></div></div>
+        <section class="panel trend-panel">
+          <div class="panel-heading trend-heading"><div><div class="eyebrow">WEEK-BY-WEEK SIGNALS</div><h3>Concern trends</h3><p class="muted">Track whether concern volume is rising, falling or staying steady. Trends are signals, not proof.</p></div><span class="tiny-label">ILLUSTRATIVE DEMO</span></div>
+          <div class="trend-controls"><label>Concern theme<select id="trendCategory"><option value="all">All concerns</option></select></label><label>Measure<select id="trendMetric"><option value="concerns">Concerns submitted</option><option value="support">Student support</option></select></label></div>
+          <div id="trendSummary" class="trend-summary" aria-live="polite"></div>
+          <div id="trendChart" class="trend-chart" role="img" aria-label="Weekly concern trend chart"></div>
+          <p class="trend-footnote" id="trendFootnote">Demo values are illustrative. Live trends will be calculated from dated records in the shared database.</p>
+        </section>
+        <div class="content-grid report-grid"><section class="panel"><div class="panel-heading"><div><div class="eyebrow">BY FACULTY</div><h3>Support by faculty</h3></div><span class="tiny-label">DEMO</span></div><div id="facultyReport" class="report-list"></div></section><section class="panel"><div class="panel-heading"><div><div class="eyebrow">BY THEME</div><h3>Support by category</h3></div><span class="tiny-label">DEMO</span></div><div id="categoryReport" class="report-list"></div></section></div>
+        <section class="panel export-panel"><div><div class="eyebrow">SHARE RESPONSIBLY</div><h3>Export a sample summary</h3><p>Downloads aggregate demo data only. A production report must apply minimum group-size thresholds and moderation checks.</p></div><button class="button button-primary" id="exportReport">Export demo CSV ↓</button></section>
+      </section>
+
+      <section class="view" id="view-timetable">
+        <div class="page-heading"><div class="eyebrow">VIT PUNE · FY ET-D</div><h1>Faculty & <em>subjects.</em></h1><p>Timetable-linked reference data for accurate faculty and subject selection.</p></div>
+        <div class="notice-banner"><span class="notice-icon">ⓘ</span><div><b>Screenshot-transcribed timetable · verification required</b><p>Faculty, subjects, room numbers and slots below are transcribed from the screenshots supplied for the week of 23–28 November 2026. Confirm the current timetable with the institute before using this for official reporting.</p></div><span class="demo-tag">SOURCE: SCREENSHOTS</span></div>
+        <div class="panel timetable-panel"><div class="panel-heading"><div><div class="eyebrow">REFERENCE SOURCE</div><h3>LazyVITians · ET-D</h3></div><span class="tiny-label">EXTERNAL</span></div><p>Use the timetable portal as a reference, then import an exported timetable or verified screenshots. Confirm current semester, batch, room, and faculty allocation before publishing.</p><a class="button button-ghost" href="https://prathmeshwinedeshkar-dev.github.io/Lazyvitians/#dv=ET-D&v=today&b=1&c=kon&d=all&w=0" target="_blank" rel="noopener">Open timetable ↗</a><div class="faculty-table-wrap"><table><thead><tr><th>Day / time</th><th>Faculty</th><th>Subject · code</th><th>Room · session</th></tr></thead><tbody id="facultyTable"></tbody></table></div><div class="day-notes" id="dayNotes"></div></div>
+      </section>
+
+      <section class="view" id="view-privacy">
+        <div class="page-heading"><div class="eyebrow">CLEAR PROMISES · HONEST LIMITS</div><h1>Privacy <em>centre.</em></h1><p>Understand what CLASSVOICE is designed to protect, what it stores, and what it cannot promise.</p></div>
+        <div class="privacy-grid">
+          <article class="panel privacy-card"><span class="privacy-emblem">◎</span><h3>No names on concerns</h3><p>Published concerns and reaction totals must not display a student's name, email, roll number or voter identity.</p></article>
+          <article class="panel privacy-card"><span class="privacy-emblem">⌁</span><h3>No account or email required</h3><p>CLASSVOICE will not ask for college email or OTP. Without individual verification, however, it cannot prove that every visitor is an ET-D student.</p></article>
+          <article class="panel privacy-card"><span class="privacy-emblem">◌</span><h3>One browser, one reaction (demo)</h3><p>The demo remembers reactions on this browser only. Clearing browser data or switching devices can reset this limit.</p></article>
+          <article class="panel privacy-card"><span class="privacy-emblem">▤</span><h3>Aggregate reports only</h3><p>CR Sarthak Jain and ACR Prashashti Wankhede are intended report viewers, not identity viewers. Small groups must be suppressed.</p></article>
+        </div>
+        <div class="notice-banner privacy-limit"><span class="notice-icon">!</span><div><b>Important: no-login means no verified class membership</b><p>This prototype does not ask for college email, OTP, name or student account. It also has no shared database. A future public backend can still process technical metadata such as IP address and timestamps. Do not promise absolute untraceability or submit real/sensitive complaints until the backend and privacy controls are independently reviewed.</p></div></div>
+      </section>
+
+      <footer class="footer"><span>CLASSVOICE <b>·</b> VIT PUNE FY ET-D</span><span>Unofficial student initiative · Not endorsed by VIT Pune</span><span class="site-credit">CLASSVOICE · A student feedback initiative · Made by <strong>Prathmesh Winedeshkar</strong></span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="data.js"></script><script src="app.js"></script>
+  <script>if ("serviceWorker" in navigator && location.protocol.startsWith("http")) { window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {})); }</script>
+</body>
+</html>
